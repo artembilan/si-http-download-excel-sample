@@ -1,7 +1,7 @@
 Sample demonstrates Web Application with one functionality:
 Excel file downloading as byte[] and 'Content-Type' HTTP Response header with value 'application/vnd.ms-excel'.
-Server logic builded on Spring Integration:
-1. File is readed from Classpath with org.springframework.core.io.ClassPathResource
+Server logic built on Spring Integration:
+1. File is read from Classpath via org.springframework.core.io.ClassPathResource
 2. Converted into byte[] via org.apache.commons.io.IOUtils
 3. byte[] is placed as Message payload via <transformer> inside the <chain>
 4. 'Content-Type' is added into MessageHeaders via <header-enricher>
@@ -9,8 +9,7 @@ Server logic builded on Spring Integration:
 
 Build System is Gradle and applies 'jetty' plugin
 To test this sample it is enough to run Gradle task 'jettyRunWar'.
-Jetty Servlet container will be started on defaoult port 8080.
+Jetty Servlet-Container will be started on default port 8080.
 Application context-root is the same a project name.
 
-Important:
-	Only the Microsoft IE can open Excel sheet immediately in the Browser window
+Important: only Microsoft IE can open Excel sheet immediately in the Browser window
