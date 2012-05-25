@@ -1,0 +1,33 @@
+apply plugin: 'idea'
+apply plugin: 'jetty'
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+
+ext {
+	springVersion = '3.1.1.RELEASE'
+	springIntegrationVersion = '2.1.1.RELEASE'
+}
+
+
+dependencies {
+	compile("org.springframework:spring-core:$springVersion"
+			, "org.springframework:spring-beans:$springVersion"
+			, "org.springframework:spring-expression:$springVersion"
+			, "org.springframework:spring-webmvc:$springVersion"
+			, "org.springframework.integration:spring-integration-core:$springIntegrationVersion"
+			, "org.springframework.integration:spring-integration-http:$springIntegrationVersion"
+			, 'commons-io:commons-io:1.4')
+}
+
+jettyRunWar {
+	stopPort = 8081
+	stopKey = 'stopKey'
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '1.0-rc-3'
+	jarFile = '.wrapper/wrapper.jar'
+}
